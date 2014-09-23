@@ -1,0 +1,140 @@
+/**
+ * Theme Name:  WSU Spine - CAHNRS Events
+ * Theme URI:   http://cahnrs.wsu.edu/communications/
+ * Author:      CAHNRS Communications, Danial Bleile
+ * Author URI:  http://cahnrs.wsu.edu/communications/
+ * Description: 
+ * Version:     0.5
+ * License:     Copyright Washington State University
+ * License      URI: http://copyright.wsu.edu
+ * Template:    WSUWP-spine-parent-theme
+ */
+ 
+body { 
+	font-size: 14px;
+	background-image: none !important;
+}
+body h1 {
+	color: #003c69;
+}
+#jacket {
+	background-image: none !important;
+}
+#spine {
+	margin-left: 5%;
+}
+ 
+#global-header {
+	left: 0px;
+	margin-left: 200px;
+	width: 100%;
+	position: absolute;
+}
+
+#global-header:before,
+#global-header:after {
+	position: absolute;
+	content: ' ';
+	top: 0;
+	width: 100%;
+}
+
+#global-header,
+#global-header:before,
+#global-header:after {
+	background-color: #2f475a;
+	height: 100px;
+}
+#global-header:before { right: 100%; }
+#global-header:after { left: 100%;}
+
+#global-header .banner {
+	margin-left: 5%;
+	height: 100px;
+	line-height: 100px;
+}
+
+#global-header .banner a {
+	margin: 0 2rem;
+	display: inline-block;
+	font-size: 1.75rem;
+}
+
+main {
+	padding-top: 98px;
+}
+
+#row-100 {
+	background: #fff;
+	position: relative;
+}
+
+.pagebuilder-row {
+	padding: 1.5rem 0;
+}
+.pagebuilder-row {
+	padding: 1.5rem 0;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.pagebuilder-row.full{;
+	max-width: 100%;
+}
+
+.pagebuilder-column {
+	background-repeat: repeat-y;
+	position: left center;
+}
+.pagebuilder-column {
+	background-repeat: repeat-y;
+	position: left center;
+}
+
+
+.breakout {
+	width: 104%;
+	position: relative;
+	left: -2%;
+}
+.pagebuilder-item {
+	margin: 0 1rem ;
+}
+
+.tight {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.cahnrs-slideshow.slideshow-basic .cahnrs-slide > img,
+.cahnrs-slideshow.slideshow-basic .cahnrs-slide > a > img {
+	width: 100% !important;
+	border-right: none !important;
+	height: auto;
+	display: block;
+}
+
+.cahnrs-slideshow.slideshow-basic .caption {
+	position: absolute !important;
+	padding: 2rem 0 0 !important;
+	top: 0 !important;
+	right: 0 !important;
+	width: 45% !important;
+}
+/* Medium and Desktop - Small */
+@media only screen and (max-width: 1120px) {
+	.pagebuilder-row {
+		max-width: 95%;
+	}
+}
+
+/** base 64 **/
+.pagebuilder-column
+{
+background-image: url(data:image/gif;base64,R0lGODlhAgABAIAAAP///83MzCH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCRjYzRTk2NDQwMkUxMUU0OTFFMUUwNjU3REYzRTQwRiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCRjYzRTk2NTQwMkUxMUU0OTFFMUUwNjU3REYzRTQwRiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkJGNjNFOTYyNDAyRTExRTQ5MUUxRTA2NTdERjNFNDBGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkJGNjNFOTYzNDAyRTExRTQ5MUUxRTA2NTdERjNFNDBGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAIAAQAAAgJECgA7)
+}
+.pagebuilder-column:first-child:not(.pagebuilder-column-2),
+.pagbuilder-layout-aside .pagebuilder-column.pagebuilder-column-1 {
+	background: none;
+}
+
+
+
