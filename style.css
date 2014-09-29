@@ -4,7 +4,7 @@
  * Author:      CAHNRS Communications, Danial Bleile
  * Author URI:  http://cahnrs.wsu.edu/communications/
  * Description: 
- * Version:     0.5
+ * Version:     1
  * License:     Copyright Washington State University
  * License      URI: http://copyright.wsu.edu
  * Template:    WSUWP-spine-parent-theme
@@ -13,17 +13,190 @@
 body { 
 	font-size: 14px;
 	background-image: none !important;
+	position: relative;
 }
 body h1 {
 	color: #003c69;
+	padding: 0 2rem;
 }
-#jacket {
-	background-image: none !important;
+body h2 {
+	font-size: 1.2rem;
 }
-#spine {
-	margin-left: 5%;
+main {
+	padding-bottom: 110px;
 }
- 
+
+#global-header {
+	position: relative;
+	margin-bottom: 2rem;
+}
+#global-header.site-front-page {
+	margin-bottom: 0;
+}
+
+#global-header:before,
+#global-header:after {
+	position: absolute;
+	content: ' ';
+	top: 0;
+	width: 300%;
+}
+#global-header,
+#global-header:before,
+#global-header:after {
+	background-color: #2f475a;
+	height: 120px;
+}
+
+#global-header.site-front-page,
+#global-header.site-front-page:before,
+#global-header.site-front-page:after {
+	background-color: #2f475a;
+	height: 198px;
+}
+
+#global-header:before { right: 100%; }
+#global-header:after { left: 100%;}
+
+.spineless #global-header .site-banner {
+	display: table;
+	height: 158px;
+}
+.spineless #global-header .site-banner {
+	margin-left: 200px;
+}
+
+#global-header .site-banner > a {
+	display: table-cell;
+	vertical-align: middle;
+	height: 100px;
+	line-height: 1.8em;
+}
+.site-front-page.site-front-page .site-banner > a {
+	height: 158px;
+}
+#global-header .site-banner > a > span {
+	display: block;
+	color: #fff;
+	margin-left: 2rem;
+}
+#global-header .site-banner > a > span.cahnrs-site-title {
+	font-size: 2.2em;
+}
+#global-header .site-banner > a > span.cahnrs-site-description {
+	font-size: 1.2em;
+}
+
+#global-header > nav:before,
+#global-header > nav:after {
+	position: absolute;
+	content: ' ';
+	bottom: 0;
+	width: 300%;
+}
+#global-header > nav,
+#global-header > nav:before,
+#global-header > nav:after {
+	height: 20px;
+	background: #eff0f1;
+	z-index: 100;
+}
+#global-header.site-front-page > nav,
+#global-header.site-front-page > nav:before,
+#global-header.site-front-page > nav:after {
+	height: 40px;
+}
+
+
+#global-header > nav:before { right: 100%; }
+#global-header > nav:after { left: 100%;}
+
+#global-header > nav {
+	position: relative;
+	margin-left: 198px;
+}
+#global-header > nav > ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: table;
+}
+#global-header > nav > ul > li {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+#global-header > nav > ul > li > a {
+	display: block;
+	height: 40px;
+	padding: 0 2rem;
+	line-height: 35px;
+	font-size: 1.2em;
+	color: #2f475a;
+	text-transform: uppercase;
+}
+#global-header > nav > ul > li.activedrop a,
+#global-header > nav > ul > li a:hover {
+	background: #2f475a;
+	color: #eff0f1; 
+}
+.is_dropdown li {
+	position: relative;
+}
+
+.is_dropdown ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	width: 225px;
+	background: #eff0f1;
+	border: 1px solid #2f475a;
+	border-radius: 0 0 3px 3px; 
+}
+.is_dropdown li li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.is_dropdown li li a {
+	display: block;
+	margin: 0;
+	padding: 4px 1rem;
+	color: #2f475a;
+}
+
+.pagebuilder-item {
+	padding: 0.5rem 2rem 1rem; 
+}
+.pagebuilder-item:not(.unbound)
+{
+	margin-right: 0 !important;
+}
+#global-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#global-footer .divider-bar {
+	height: 40px;
+	background: #2f475a;
+}
+#global-footer .footer-content {
+	text-align: center;
+}
+#global-footer .footer-content a {
+	font-size: 0.8em;
+	display: inline-block;
+	color: #555;
+	padding: 10px 0;
+}
+.pagebuilder-item.widget_subtitle {
+margin-bottom: 0 !important;
+padding-bottom: 0 !important;
+}
+/*
 #global-header {
 	left: 0px;
 	margin-left: 200px;
@@ -119,21 +292,32 @@ main {
 	right: 0 !important;
 	width: 45% !important;
 }
-/* Medium and Desktop - Small */
+
 @media only screen and (max-width: 1120px) {
 	.pagebuilder-row {
 		max-width: 95%;
 	}
-}
+}*/
 
-/** base 64 **/
-.pagebuilder-column
-{
-background-image: url(data:image/gif;base64,R0lGODlhAgABAIAAAP///83MzCH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCRjYzRTk2NDQwMkUxMUU0OTFFMUUwNjU3REYzRTQwRiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCRjYzRTk2NTQwMkUxMUU0OTFFMUUwNjU3REYzRTQwRiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkJGNjNFOTYyNDAyRTExRTQ5MUUxRTA2NTdERjNFNDBGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkJGNjNFOTYzNDAyRTExRTQ5MUUxRTA2NTdERjNFNDBGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAIAAQAAAgJECgA7)
+
+.pagebuilder-column:before {
+	content: ' ';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	border-right: 1px solid #ccc;
+	background-color: #fff;
 }
-.pagebuilder-column:first-child:not(.pagebuilder-column-2),
-.pagbuilder-layout-aside .pagebuilder-column.pagebuilder-column-1 {
-	background: none;
+.pagebuilder-column:first-child:before {
+	border-right: none;
+	background-color: none;
+}
+@media screen and (max-width: 989px), only screen and (max-device-width: 1024px) and (orientation: portrait) {
+  .spineless #global-header .site-banner, #global-header > nav {
+	  margin-left: 0;
+  }
 }
 
 
