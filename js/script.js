@@ -16,25 +16,25 @@ var init_cahnrs_page =  function(){
 		
 		jQuery('body').on( 'hover' , '.is_dropdown > li', function( e ){
 			if (e.type == "mouseenter") {
-				jQuery( this ).children('a').addClass('activedrop');
-				setTimeout(function(){ dr.active_drop( jQuery( this ) ) }, 150);  
+				var c = jQuery( this );
+				c.addClass('activedrop');
+				setTimeout(function(){ dr.active_drop( c ) }, 150);  
 			} else { 
 				dr.close_drop( jQuery( this ) );
 			}
 		});
 		
 		dr.active_drop = function( ih ){
-			if( ih.children('a').hasClass('activedrop')){
-				alert('fire');
+			if( ih.hasClass('activedrop')){
 				console.log( ih.children('ul').length );
-				ih.children('ul').slideDown('medium');
+				ih.children('ul').slideDown('fast');
 			}
 		}
 		dr.close_drop = function( ih ){
 			ih.removeClass('activedrop');
-			ih.children('ul').slideUp('medium');
+			ih.children('ul').slideUp('fast');
 		}
 	};
 	
-	//if( jQuery('.is_dropdown').length > 0 ) ch.dropdown(  );
+	if( jQuery('.is_dropdown').length > 0 ) ch.dropdown(  );
 }

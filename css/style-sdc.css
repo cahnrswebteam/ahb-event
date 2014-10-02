@@ -1,0 +1,338 @@
+html {
+	background-color: #F0F0F0;
+}
+
+body {
+	color: #111;
+	background-color: #F0F0F0;
+}
+h1 {
+	display: none;
+}
+#jacket {
+	overflow: hidden;
+}
+main {
+	min-height: 500px !important;
+	position: relative;
+}
+
+/*main > section {
+	/*padding-top: 1.5rem;*/
+	/*position: relative;
+	z-index: 200;
+	background-color: #F0F0F0;
+}
+main > section.row:before,
+main > section.row:after {
+	position: absolute;
+	content: ' ';
+	top: 0;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+	background-color: #F0F0F0;
+}
+main > section.row:before { right: 100%; }
+main > section.row:after { left: 100%;}*/
+
+
+main > section > article {
+	margin: 0 2rem;
+	position: relative;
+	z-index: 
+}
+
+#global-header {
+	position: absolute;
+	z-index: 300;
+	margin-left: 0;
+	width: 100%;
+}
+#global-header.site-front-page {
+	margin-bottom: 0;
+}
+
+#global-header:before,
+#global-header:after {
+	position: absolute;
+	content: ' ';
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 190;
+}
+#global-header,
+#global-header:before,
+#global-header:after {
+	background-color: rgba(238,238,238,0.9);
+}
+
+#global-header:before { right: 100%; }
+#global-header:after { left: 100%;}
+
+#global-header .site-banner {
+	display: table;
+	height: 85px;
+	margin-left: 2rem;
+}
+
+#global-header .site-banner > a {
+	display: table-cell;
+	vertical-align: middle;
+	height: 100px;
+	line-height: 1.8em;
+	color: #111;
+	font-family: 'Raleway', sans-serif;
+	color: #981e32;
+}
+
+
+
+.site-front-page.site-front-page .site-banner > a {
+	height: 158px;
+	color: #fff;
+}
+#global-header .site-banner > a > span {
+	display: inline-block;
+	vertical-align: baseline;
+	margin-right: 0.75rem;
+	letter-spacing: 1px;
+}
+#global-header.site-front-page .site-banner > a > span {
+	display: block;
+	margin-left: 2rem;
+}
+#global-header .site-banner > a > span.cahnrs-site-title {
+	font-size: 2.4rem;
+}
+#global-header .site-banner > a > span.cahnrs-site-description {
+	font-size: 1.6em;
+	color: #666;
+	text-transform: lowercase;
+}
+#global-header.site-front-page .site-banner > a > span.cahnrs-site-description {
+	display: none;
+}
+
+#global-header > nav {
+	background: #555;
+	min-height: 5px;
+	position: relative;
+}
+
+#global-header > nav:before,
+#global-header > nav:after {
+	background: #555;
+	position: absolute;
+	content: ' ';
+	bottom: 0;
+	width: 300%;
+	height: 100%;
+}
+#global-header > nav,
+#global-header > nav:before,
+#global-header > nav:after {
+	z-index: 300;
+}
+#global-header.site-front-page > nav,
+#global-header.site-front-page > nav:before,
+#global-header.site-front-page > nav:after {
+	height: 40px;
+	background: none;
+}
+
+
+#global-header > nav:before { right: 100%; }
+#global-header > nav:after { left: 100%;}
+
+#global-header.site-front-page > nav {
+	position: relative;
+	margin-left: 198px;
+}
+#global-header > nav > ul {
+	margin: 0 0 0 0.5rem;
+	padding: 0;
+	list-style-type: none;
+	display: table;
+}
+#global-header > nav > ul > li {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+#global-header > nav > ul > li > a {
+	display: block;
+	height: 40px;
+	padding: 0 1.5rem;
+	line-height: 40px;
+	font-size: 1em;
+	color: #111;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+#global-header > nav > ul > li.activedrop > a,
+#global-header > nav > ul > li > a:hover {
+	background: #fff;
+	color: #444; 
+}
+.is_dropdown li {
+	position: relative;
+}
+
+.is_dropdown ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	width: 225px;
+	background: #fff;
+	display: none; 
+}
+.is_dropdown li li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.is_dropdown li li a {
+	display: block;
+	margin: 0;
+	padding: 4px 1rem;
+	color: #111;
+}
+.is_dropdown li li a:hover {
+	background-color: #eee;
+	}
+
+#pagebanner {
+	background-image:url(../images/sdc-arch-slide.jpg);
+	background-size:   cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+	background-attachment: fixed;
+	background-color: #000;
+	max-height: 450px;
+	position: relative;
+	overflow: hidden;
+}
+#pagebanner .banner-image {
+	/*width: 100%;
+	height: 100%;
+	background-attachment: local;
+	background-size: 100% auto;
+	background-position: center center;*/
+}
+#pagebanner .banner-image img {
+	/*display: none;*/
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+#tertiary-nav {
+	position: relative;
+	border-bottom: 1px solid #777;
+}
+#tertiary-nav ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: rgba(238,238,238,0.9);
+	min-height: 1rem;
+}
+#tertiary-nav ul:before,
+#tertiary-nav ul:after {
+	position: absolute;
+	content: ' ';
+	bottom: 0;
+	width: 300%;
+	height: 100%;
+	background-color: rgba(238,238,238,0.9);
+	z-index: 100;
+	border-bottom: 1px solid #777;
+}
+
+#tertiary-nav ul:before { right: 100%; }
+#tertiary-nav ul:after { left: 100%;}
+
+
+
+
+#tertiary-nav li{
+	display: inline-block;
+	margin: 0 0 0 2rem;
+	padding: 0;
+}
+#tertiary-nav li a{
+	display: block;
+	/*height: 40px*/
+	/*line-height: 40px;*/
+	margin: 0;
+	padding: 0.75rem 0;
+	color: #555;
+	font-size: 1rem;
+}
+#tertiary-nav li a:hover,
+#tertiary-nav li a.active
+{
+	color: #111;
+	font-weight: bold;
+}
+#spine-sitenav ul ul ul {
+	/*display: none;*/
+}
+#spine-sitenav .parent.active > a,
+#spine-sitenav .current > a {
+	color: #981e32;
+}
+
+
+#pagebuilder-tertiary-nav {
+	position: absolute;
+	background-color: rgba(238,238,238,0.9);
+	width: 100%;
+	bottom: 100%;
+	left: 0;
+	overflow: visible;
+}
+#pagebuilder-tertiary-nav ul{
+	position: relative;
+	z-index: 300;
+	border-left: 1px solid #ccc;
+}
+
+#pagebuilder-tertiary-nav:before,
+#pagebuilder-tertiary-nav:after {
+	position: absolute;
+	content: ' ';
+	bottom: 0;
+	width: 300%;
+	height: 100%;
+	background-color: rgba(238,238,238,0.9);
+}
+
+#pagebuilder-tertiary-nav:before { right: 100%; }
+#pagebuilder-tertiary-nav:after { left: 100%;}
+
+#pagebuilder-tertiary-nav a {
+background: none;
+color: #555;
+display: block;
+font-weight: normal;
+margin-right: 0;
+opacity: 1;
+padding: 0.5em 2em;
+position: relative;
+border-right: 1px solid #ccc;
+}
+
+#pagebuilder-tertiary-nav .selected a {
+background: #F0F0F0;
+color: #111;
+margin-bottom: -1px;
+z-index: 200;
+font-weight: bold;
+}
+.pagebuilder-row {
+	padding-top: 1.5rem;
+}
