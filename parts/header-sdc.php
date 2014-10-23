@@ -1,57 +1,74 @@
-<?php 
-	$is_frontpage = ( is_front_page() )? 'site-front-page' : '';
-	$has_horiz_nav = has_nav_menu( 'cahnrs_horizontal' );
-	$is_cropped =( $is_frontpage )? 'cropped_spine' : ''; // TO Do: Create this for real
-	global $post;
-	?>
-<header id="global-header" class="header-sdc <?php echo $is_frontpage;?>">
-	<div class="site-banner">
-    <?php $site = get_the_terms( $post->ID , 'site' );?>
-    <?php if( !$site ):?>
-    	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<span class="cahnrs-site-title"><?php bloginfo( 'name' ); ?></span>
-            <span class="cahnrs-site-description"><?php echo get_the_title( $post->ID ); ?></span>
-        </a>
-    <?php else:?>
-    	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-        	<?php $site = reset( $site ); ?>
-			<span class="cahnrs-site-title is_subsite"><?php echo $site->name; ?></span>
-            <span class="cahnrs-site-description is_subsite"><?php echo get_the_title( $post->ID ); ?></span>
-        </a>
-    <?php endif;?>
-    </div>
-    <nav>
-    	<?php
-		if( $has_horiz_nav ){
-			wp_nav_menu( array(
-				'theme_location' => 'cahnrs_horizontal',
-				'container'      => false,
-				'menu_class'     => 'nav-wrapper is_dropdown',
-				/*'fallback_cb'    => 'featured_nav_fallback',*/
-				'depth'          => 1
-				) );
-		} 
-		else if( $is_cropped ) {
-			wp_nav_menu( array(
-				'theme_location' => 'site',
-				'container'      => false,
-				'menu_class'     => 'nav-wrapper is_dropdown',
-				/*'fallback_cb'    => 'featured_nav_fallback',*/
-				'depth'          => 2
-				) );
+<?php
+class header_view {
+	private $controller;
+	private $header_model;
+	
+	public function __construct( $controller , $header_model ){
+		$this->controller = $controller;
+		$this->header_model = $header_model;
+	}
+	
+	public function get_header( $header_name = 'sdc' ){
+		switch ( $header_name ){
+			case 'sdc':
+				include 'header-sdc-2.php';
 		}
-		?>
-    </nav>
-</header>
-<?php if( !is_front_page() ):?>
-<div id="pagebanner" class="unbound recto verso" >
-	<?php if( has_post_thumbnail( $post->ID ) ){
-    	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'wide-banner' );
-		$url = $thumb['0'];
-		echo '<div class="banner-image" style="background-image: url('.$url.');">';
-			echo '<img src="'.$url.'" />';
-		echo '</div>';
-    };?>
-   
-</div> 
-<?php endif;?>
+	}
+}
+
+class header_model {
+	public $is_front_page;
+	public $post;
+	public $has_horiz_nav;
+	public $meta;
+	public $site;
+	public $has_banner;
+	public $has_featured_image;
+	public $use_post_image;
+	
+	public function __construct( $post ){
+		$this->post = $post;
+		$this->is_front_page = is_front_page();
+		$this->has_horiz_nav = has_nav_menu( 'cahnrs_horizontal' );
+		$this->meta = get_post_meta( $this->post->ID );
+		$this->site = $this->get_site();
+		$this->has_banner = $this->check_banner();
+		$this->has_featured_image = has_post_thumbnail( $this->post->ID );
+		$this->use_post_image = ( isset( $this->meta['_use_post_image'] ) && $this->meta['_use_post_image'][0] );
+	}
+	
+	private function get_site(){
+		$site = array();
+		$site_terms = get_the_terms( $post->ID , 'site' );
+		if( $site_terms ) {
+			$site_terms = reset( $site_terms );
+			$site['name'] = $site_terms->name;
+			$site['url'] = esc_url( home_url( '/' ) );
+		} else {
+			$site['name'] = get_bloginfo( 'name' );
+			$site['url'] = esc_url( home_url( '/' ) );
+		}
+		return $site;
+	}
+	
+	private function check_banner(){
+		if( $this->is_front_page ) return false;
+		if( isset( $this->meta['_collapse_banner'] ) && $this->meta['_collapse_banner'][0]  ) return false;
+		return true;
+	}
+}
+
+class header_control {
+	private $post;
+	private $header_model;
+	private $header_view;
+	
+	public function __construct( $post ){
+		$this->post = $post;
+		$this->header_model = new header_model( $this->post );
+		$this->header_view = new header_view( $this , $this->header_model );
+		$this->header_view->get_header();
+	}
+}
+global $post;
+$cahnrs_header = new header_control( $post );

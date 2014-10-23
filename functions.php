@@ -12,17 +12,22 @@ class cahnrs_events_spine_child {
 		add_action( 'init', array( $this, 'add_image_sizes' ) );
 		add_filter( 'image_size_names_choose', array( $this, 'add_custom_image_sizes' ) );
 		add_post_type_support('page', 'excerpt');
-		add_action('wp_footer', array( $this , 'add_footer') );
 		add_action( 'wp_enqueue_scripts', array( $this, 'cahnrs_scripts' ), 20 );
 		add_action( 'init', array( $this, 'cahnrs_menu' ) );
 		add_action( 'init', array( $this, 'add_sites' ), 0 );
 		add_filter( 'wp_nav_menu_args', array( $this , 'modify_nav_menu_args' ) );
+		add_action( 'admin_init' , array( $this , 'admin_init' ) );
 
 		if ( is_admin() ){
 			include CAHNRS2014DIR.'/admin-settings/admin_settings.php';
 			$admin_settings = new init_admin_settings();
 			add_action( 'admin_init', array( $admin_settings ,'register_settings' ) );
 		}
+	}
+	public function admin_init(){
+		/** Register default taxonomies for pages **/
+		\register_taxonomy_for_object_type('post_tag', 'page');
+		\register_taxonomy_for_object_type('category', 'page'); 
 	}
 	
 	public function modify_nav_menu_args( $args ){
@@ -83,10 +88,6 @@ class cahnrs_events_spine_child {
 		) );
 	}
 	
-	public function add_footer(){
-		include 'footer-footerselector.php';
-	}
-	
 	public function cahnrs_scripts() {
 		
 		wp_enqueue_script( 'theme-script', CAHNRS2014URI . '/js/script.js' , array(), '1.0.0', false );
@@ -94,6 +95,7 @@ class cahnrs_events_spine_child {
 		$theme = ( isset( $opts['theme'] ) &&  $opts['theme']  )? $opts['theme']: ''; // Check for theme
 		if( isset( $opts['style'] ) &&  $opts['style']  ) $theme = $opts['style']; // Check if header override is set
 		wp_enqueue_style( 'custom_css', CAHNRS2014URI . '/css/style-'.$theme.'.css' , array(), '1.0.0', false );
+		wp_enqueue_script( 'cycle-2', 'http://malsup.github.com/jquery.cycle2.js' , array(), '1.0.0', false );
 	}
 	
 	public function cahnrs_menu() {
